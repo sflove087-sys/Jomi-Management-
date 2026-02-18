@@ -11,12 +11,21 @@
         body {
             font-family: 'Hind Siliguri', sans-serif;
             background-color: #f8fafc;
+            -webkit-font-smoothing: antialiased;
         }
-        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar { width: 5px; height: 5px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.1); border-radius: 10px; }
+        .dark .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.05); }
+        
         @media print {
             .no-print { display: none !important; }
+            body { background: white !important; }
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
         }
+        
+        /* Smooth transitions */
+        .transition-all { transition-duration: 300ms; }
     </style>
 <script type="importmap">
 {
@@ -25,7 +34,7 @@
     "react/": "https://esm.sh/react@19.0.0/",
     "react-dom": "https://esm.sh/react-dom@19.0.0",
     "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react-dom/": "https://esm.sh/react-dom@19.0.0/",
     "@google/genai": "https://esm.sh/@google/genai@^1.41.0"
   }
 }
